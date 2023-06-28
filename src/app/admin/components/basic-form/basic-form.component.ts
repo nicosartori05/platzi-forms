@@ -7,7 +7,19 @@ import { FormControl } from '@angular/forms';
 })
 export class BasicFormComponent implements OnInit {
 
-  nameField = new FormControl('soy un control');
+  nameField = new FormControl('');
+  emailField = new FormControl('');
+  phoneField = new FormControl('');
+  colorField = new FormControl('#000000');
+  numberField = new FormControl('');
+  dateField = new FormControl(12);
+
+  categoryField = new FormControl('category-2');
+  tagField = new FormControl('');
+
+  agreeField = new FormControl(false);
+  genderField = new FormControl('');
+  zoneField = new FormControl('');
 
 
   constructor() { }
