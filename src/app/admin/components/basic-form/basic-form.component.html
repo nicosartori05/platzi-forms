@@ -86,93 +86,66 @@
     <input matInput type="color" formControlName="color" />
   </mat-form-field>
 
-  <p>
-    Date: {{ dateField.value }}
-    <input type="date" formControlName="date" />
-  </p>
+  <mat-form-field>
+    <mat-label>Date: {{ dateField.value }}</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
   <mat-form-field>
     <mat-label>Category: {{ categoryField.value }}</mat-label>
-    <mat-select>
-      <mat-option value="category-1">
-        Category 1
-      </mat-option>
-      <mat-option value="category-2">
-        Category 2
-      </mat-option>
-      <mat-option value="category-3">
-        Category 3
-      </mat-option>
-      <mat-option value="category-4">
-        Category 4
-      </mat-option>
+    <mat-select formControlName="category">
+      <mat-option value="category-1"> Category 1 </mat-option>
+      <mat-option value="category-2"> Category 2 </mat-option>
+      <mat-option value="category-3"> Category 3 </mat-option>
+      <mat-option value="category-4"> Category 4 </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Tags: {{ tagField.value }}</mat-label>
     <mat-select formControlName="tag" multiple>
-      <mat-option value="tag-1">
-        Tag 1
-      </mat-option>
-      <mat-option value="tag-2">
-        Tag 2
-      </mat-option>
-      <mat-option value="tag-3">
-        Tag 3
-      </mat-option>
-      <mat-option value="tag-4">
-        Tag 4
-      </mat-option>
+      <mat-option value="tag-1"> Tag 1 </mat-option>
+      <mat-option value="tag-2"> Tag 2 </mat-option>
+      <mat-option value="tag-3"> Tag 3 </mat-option>
+      <mat-option value="tag-4"> Tag 4 </mat-option>
     </mat-select>
   </mat-form-field>
 
   <section class="example-section">
     <p>Agree: {{ agreeField.value }}</p>
-    <mat-checkbox class="example-margin" formControlName="agree" >agree</mat-checkbox>
+    <mat-checkbox class="example-margin" formControlName="agree"
+      >agree</mat-checkbox
+    >
   </section>
 
-  <p>
-    Gender: {{ genderField.value }}
-    <label>
-      <input name="gender" value="male" type="radio" formControlName="gender" />
-      Male
-    </label>
-    <label>
-      <input
-        name="gender"
-        value="female"
-        type="radio"
-        formControlName="gender"
-      />
-      Female
-    </label>
-    <label>
-      <input
-        name="gender"
-        value="other"
-        type="radio"
-        formControlName="gender"
-      />
-      Other
-    </label>
-  </p>
-  <p>
-    Zone: {{ zoneField.value }}
-    <label>
-      <input name="zone" value="zone-1" type="radio" formControlName="zone" />
-      Zona 1
-    </label>
-    <label>
-      <input name="zone" value="zone-2" type="radio" formControlName="zone" />
-      Zona 2
-    </label>
-    <label>
-      <input name="zone" value="zone-3" type="radio" formControlName="zone" />
-      Zona 3
-    </label>
-  </p>
-  <p>
-    <button [disabled]="form.invalid" type="submit">Enviar</button>
-  </p>
+  <div>gender: {{genderField.value}}</div>
+  <mat-radio-group aria-label="Select an option" formControlName="gender">
+    <mat-radio-button name="gender" value="male">male</mat-radio-button>
+    <mat-radio-button name="gender" value="female">female</mat-radio-button>
+    <mat-radio-button name="gender" value="other">other</mat-radio-button>
+  </mat-radio-group>
+
+  <div>zone: {{zoneField.value}}</div>
+  <mat-radio-group aria-label="Select an option" formControlName="zone">
+    <mat-radio-button name="zone" value="zone-1"
+      >zone1</mat-radio-button
+    >
+    <mat-radio-button name="zone" value="zone-2"
+      >zone2</mat-radio-button
+    >
+    <mat-radio-button name="zone" value="zone-3"
+      >zone3</mat-radio-button
+    >
+  </mat-radio-group>
+
+  <section>
+    <div class="example-button-row">
+      <button mat-raised-button [disabled]="form.invalid" type="submit">
+        Enviar
+      </button>
+    </div>
+  </section>
 </form>
